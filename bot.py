@@ -151,6 +151,13 @@ async def ot(ctx, id):
         # Выводим надпись 'Не верно'
         await ctx.send(f'{ author.mention }. Не верно.')
 
+# Игра Угадай Число
+@client.command(pass_context = True)
+# Создаём команду .menu_number
+async def menu_number(ctx):
+    # Рандомное число от 1 до 100
+    randomNumber = random.randint(1,100)
+
 # Коннект бота
 token = open('token.txt', 'r').readline()
 client.run(token)
