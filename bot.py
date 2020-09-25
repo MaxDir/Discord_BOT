@@ -2,12 +2,21 @@ import discord
 from discord.ext import commands
 import random
 
+jokes_words = ['300', 'зоо', 'триста', 'тристо']
+
 # Префикс .help
 client = commands.Bot(command_prefix='.')
 
 @client.event
 async def on_ready():
     print('BOT connected')
+
+@client.event
+async def on_message(message):
+    msg = message.conetent.lower()
+
+    if msg in jokes_words:
+        await message.channel.send('Отсоси у тракториста')
 
 @client.command(pass_context = True)
 async def hello (ctx):
